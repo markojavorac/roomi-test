@@ -85,7 +85,9 @@ public class PersonnelAdd extends AppCompatActivity {
                     String name = nameInput.getText().toString();
                     String avatarColour = avatarColourInput.getText().toString();
                     int accessLevel = Integer.parseInt(accessLevelInput.getText().toString());
-                    dbRef.child(name).setValue(new PersonnelDatastructure(name, avatarColour, accessLevel));
+                    DatabaseReference newPersonnel = dbRef.push();
+                    newPersonnel.setValue(new PersonnelDatastructure(name, avatarColour,accessLevel));
+//                    dbRef.child(name).setValue(new PersonnelDatastructure(name, avatarColour, accessLevel));
                     finish();
                 }
             }

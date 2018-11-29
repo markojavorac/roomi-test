@@ -84,7 +84,9 @@ public class SecurityAddRoom extends AppCompatActivity {
                 if (validateData()) {
                     String name = nameInput.getText().toString();
                     int accessLevel = Integer.parseInt(accessLevelInput.getText().toString());
-                    dbRef.child(name).setValue(new RoomDatastructure(name, 0, 0, true, false, accessLevel));
+                    DatabaseReference newRoom = dbRef.push();
+                    newRoom.setValue(new RoomDatastructure(name, 0,0,true,false, accessLevel));
+//                    dbRef.child(name).setValue(new RoomDatastructure(name, 0, 0, true, false, accessLevel));
                     finish();
                 }
             }
